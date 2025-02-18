@@ -40,17 +40,27 @@
         }
 
         .each {
-            width: 80px;
-            height: 80px;
+            text-decoration: none;
+            width: 100px;
+            height: 130px; 
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
+            text-align: center;
         }
 
         .members img {
             width: 100%;
             height: 100%;
             object-fit: contain;
+        }
+
+        .each span {
+            margin-top: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            color: cadetblue;
         }
 
         .each:hover {
@@ -68,18 +78,23 @@
         <div class="members">
             <a href="gani.html" class="each">
                 <img src="hat.png" />
+                <span>팀원 이름</span>
             </a>
             <a href="member2.html" class="each">
                 <img src="macaw.png" />
+                <span>팀원 이름</span>
             </a>
             <a href="member3.html" class="each">
                 <img src="map.png" />
+                <span>팀원 이름</span>
             </a>
             <a href="member4.html" class="each">
                 <img src="box.png" />
+                <span>팀원 이름</span>
             </a>
             <a href="member5.html" class="each">
                 <img src="skull.png" />
+                <span>팀원 이름</span>
             </a>
         </div>
         <div class="navLinks">
