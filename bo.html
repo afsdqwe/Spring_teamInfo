@@ -4,6 +4,7 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Document</title>
+    <link rel="icon" type="images/png" href="img/logo(1).png">
     <script src="https://kit.fontawesome.com/abd4943d11.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link
@@ -47,126 +48,7 @@
 <body>
 
 <!-- 헤더 -->
-<div class="container">
-    <header
-            class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-        <a
-                href="home.html"
-                class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none link-dark"
-        >
-            <span class="fs-5">BEX Home</span>
-            <span></span>
-        </a>
-        <ul class="nav nav-pills">
-            <li class="nav-item">
-                <a href="frame_member1.html" class="team-icon-each">
-                    <img src="img/hat.png" width="30px"/>
-                    <span></span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="frame_member2.html" class="team-icon-each">
-                    <img src="img/macaw.png" width="30px"/>
-                    <span></span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="frame_member3.html" class="team-icon-each">
-                    <img src="img/map.png" width="30px"/>
-                    <span></span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="frame_member4.html" class="team-icon-each">
-                    <img src="img/box.png" width="30px"/>
-                    <span></span>
-                </a>
-            </li>
-        </ul>
-    </header>
-</div>
-
-<!-- 팀원 아이콘 -->
-<!-- <div class="icon-container">
-  <div class="row">
-    <div class="col">
-      <svg
-        class="bd-placeholder-img rounded-circle"
-        width="80"
-        height="80"
-        xmlns="http://www.w3.org/2000/svg"
-        role="img"
-        aria-label="Placeholder"
-        preserveAspectRatio="xMidYMid slice"
-        focusable="false"
-      >
-        <title>Placeholder</title>
-        <rect
-          width="100%"
-          height="100%"
-          fill="var(--bs-secondary-color)"
-        ></rect>
-      </svg>
-    </div>
-    <div class="col">
-      <svg
-        class="bd-placeholder-img rounded-circle"
-        width="80"
-        height="80"
-        xmlns="http://www.w3.org/2000/svg"
-        role="img"
-        aria-label="Placeholder"
-        preserveAspectRatio="xMidYMid slice"
-        focusable="false"
-      >
-        <title>Placeholder</title>
-        <rect
-          width="100%"
-          height="100%"
-          fill="var(--bs-secondary-color)"
-        ></rect>
-      </svg>
-    </div>
-    <div class="col">
-      <svg
-        class="bd-placeholder-img rounded-circle"
-        width="80"
-        height="80"
-        xmlns="http://www.w3.org/2000/svg"
-        role="img"
-        aria-label="Placeholder"
-        preserveAspectRatio="xMidYMid slice"
-        focusable="false"
-      >
-        <title>Placeholder</title>
-        <rect
-          width="100%"
-          height="100%"
-          fill="var(--bs-secondary-color)"
-        ></rect>
-      </svg>
-    </div>
-    <div class="col">
-      <svg
-        class="bd-placeholder-img rounded-circle"
-        width="80"
-        height="80"
-        xmlns="http://www.w3.org/2000/svg"
-        role="img"
-        aria-label="Placeholder"
-        preserveAspectRatio="xMidYMid slice"
-        focusable="false"
-      >
-        <title>Placeholder</title>
-        <rect
-          width="100%"
-          height="100%"
-          fill="var(--bs-secondary-color)"
-        ></rect>
-      </svg>
-    </div>
-  </div>
-</div> -->
+<div id="header"></div>
 
 <!-- 소개란 -->
 <div class="container marketing">
@@ -187,14 +69,10 @@
             <img src="img/bo.jpg" class="profile-img"/>
             </svg>
         </div>
-        <div class="col-md-4 order-md-3 icon-container">
-            <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
-            <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
-            <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
-
-            <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-brands fa-github"></i></a>
-            <a href="#"><i class="fa-brands fa-github fa-2xl" style="color: #000000;"></i></a>
-            <a href="#"><i class="fa-brands fa-vimeo fa-2xl" style="color: #000000;"></i></i></a>
+        <div class="col-md-4 order-md-3 icon-container" style="justify-content: space-evenly; margin-top: 10px">
+            <a href="https://github.com/dodu232?tab=repositories"><i class="fa-brands fa-github fa-2xl" style="color: #479647;"></i></a>
+            <a href="https://velog.io/@dodudong/posts"><i class="fa-brands fa-vimeo fa-2xl" style="color: #479647;"></i></a>
+            <a href="mailto:dodu7510@gmail.com?subject=안녕하세요."><i class="fa-solid fa-envelope fa-2xl" style="color: #479647;"></i></a>
         </div>
     </div>
     <hr class="featurette-divider" style="margin-bottom: 0"/>
@@ -282,6 +160,10 @@
 </style>
 
 <script>
+    $(function () {
+        $("#header").load("header.html");
+    })
+
     $(document).ready(function () {
         $(".confirm").prop("disabled", true);
         $('#user, #content').on('keyup', function () {
