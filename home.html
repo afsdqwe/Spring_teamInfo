@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>자기소개</title>
+    
     <style>
         html {
-            scroll-behavior: smooth;
+            scroll-behavior: smooth; 
         }
 
         .VF {
@@ -21,10 +22,14 @@
         }
 
         .first {
-            background-image: url('bg.jpg');
+            background-image: url('img/bg.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+        }
+
+        .second {
+            background-color: #F4EFD2;
         }
 
         .members {
@@ -38,7 +43,7 @@
         .each {
             text-decoration: none;
             width: 100px;
-            height: 130px;
+            height: 130px; 
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -62,6 +67,7 @@
         .each:hover {
             transform: scale(1.1);
         }
+
     </style>
 </head>
 
@@ -71,24 +77,35 @@
         <h2>Backend를 탐험하는 모험가들</h2>
 
         <div class="members">
-            <a href="gani.html" class="each">
-                <img src="hat.png" />
+            <a href="frame.html" class="each">
+                <img src="img/hat.png" />
                 <span>서보경</span>
             </a>
-            <a href="member2.html" class="each">
-                <img src="macaw.png" />
+            <a href="frame.html" class="each">
+                <img src="img/macaw.png" />
                 <span>이관희</span>
             </a>
-            <a href="member3.html" class="each">
-                <img src="map.png" />
-                <span>이석준</span>
+            <a href="frame.html" class="each">
+                <img src="img/map.png" />
+                <span>이준석</span>
             </a>
-            <a href="member4.html" class="each">
-                <img src="box.png" />
+            <a href="frame.html" class="each">
+                <img src="img/box.png" />
                 <span>최예림</span>
             </a>
         </div>
+        <div class="navLinks">
+            <a href="#secondPage">About us</a>
+            <a href="#thirdPage">Comment</a>
+        </div>
     </div>
+    <div id="secondPage" class="VF second">
+        <h1>팀 세부 설명</h1>
+    </div>
+    <div id = "thirdPage"class="VF third">
+        <h1>방명록 페이지</h1>
+    </div>
+
 </body>
 
 </html>
