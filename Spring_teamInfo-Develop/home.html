@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자기소개</title>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .VF {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .first {
+            background-image: url('img/bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .second {
+            background-color: #F4EFD2;
+        }
+
+        .members {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .each {
+            text-decoration: none;
+            width: 100px;
+            height: 130px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .members img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .each span {
+            margin-top: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            color: cadetblue;
+        }
+
+        .each:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="VF first">
+        <h1>BEX</h1>
+        <h2>Backend를 탐험하는 모험가들</h2>
+
+        <div class="members">
+            <a href="frame.html" class="each">
+                <img src="img/hat.png" />
+                <span>서보경</span>
+            </a>
+            <a href="frame.html" class="each">
+                <img src="img/macaw.png" />
+                <span>이관희</span>
+            </a>
+            <a href="frame.html" class="each">
+                <img src="img/map.png" />
+                <span>이준석</span>
+            </a>
+            <a href="yerim.html" class="each">
+                <img src="img/box.png" />
+                <span>최예림</span>
+            </a>
+        </div>
+        <div class="navLinks">
+            <a href="#secondPage">About us</a>
+            <a href="#thirdPage">Comment</a>
+        </div>
+    </div>
+    <div id="secondPage" class="VF second">
+        <h1>팀 세부 설명</h1>
+    </div>
+    <div id="thirdPage" class="VF third">
+        <h1>방명록 페이지</h1>
+    </div>
+
+</body>
+
+</html>
