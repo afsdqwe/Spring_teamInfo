@@ -18,3 +18,4 @@ const firebaseConfig = {
 // Firebase 인스턴스 초기화
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+
