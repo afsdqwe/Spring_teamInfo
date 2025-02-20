@@ -1,4 +1,33 @@
+@font-face {
+    font-family: 'Paperlogy';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Paperlogy';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-4Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Freesentation-9Black';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-9Black.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+}
+
 html, body {
     margin: 0;
     padding: 0;
+}
+
+* {
+    font-family: 'Paperlogy';
+    font-weight: 800;
+}
+
+span, p, input, textarea, td {
+    font-weight: 400;
+    font-size: 16px;
 }

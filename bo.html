@@ -4,6 +4,7 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>BEX - 서보경</title>
+    <link rel="stylesheet" href="index.css">
     <link rel="icon" type="images/png" href="img/logo(1).png">
     <script src="https://kit.fontawesome.com/abd4943d11.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -211,7 +212,7 @@
             const temp_html = `
                     <tr style="border-bottom: 1px solid #f3f3f3;">
                         <td style="width: 21%">${user}</td>
-                        <td>${content}</td>
+                        <td><span>${content}</span></td>
                     </tr>
                     `
             $('#test').append(temp_html);
