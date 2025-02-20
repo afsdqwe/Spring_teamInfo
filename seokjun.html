@@ -63,7 +63,7 @@
     let docs = await getDocs(collection(db, "information"));
     docs.forEach((doc) => {
       let row = doc.data();
-      console.log(row);
+      // console.log(row);
 
       let comment = row['comment'];
       let name = row['name'];

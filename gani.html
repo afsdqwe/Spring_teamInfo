@@ -225,13 +225,13 @@
             $('#content').val("");
             loadComments();
         } catch (error) {
-            console.error("댓글 저장 중 오류 발생:", error);
+            // console.error("댓글 저장 중 오류 발생:", error);
             alert("댓글 저장에 실패했습니다.");
         }
     });
 
     async function loadComments() {
-        console.log("Firestore에서 댓글 불러오는 중...");
+        // console.log("Firestore에서 댓글 불러오는 중...");
         const commentList = $("#test");
         commentList.empty();
 
@@ -263,7 +263,7 @@
             });
 
         } catch (error) {
-            console.error("댓글 불러오기 오류:", error);
+            // console.error("댓글 불러오기 오류:", error);
         }
     }
 
