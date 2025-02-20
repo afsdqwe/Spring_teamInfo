@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>BEX - 이관희</title>
+    <title>BEX - 서보경</title>
     <link rel="icon" type="images/png" href="img/logo(1).png">
     <script src="https://kit.fontawesome.com/abd4943d11.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -55,21 +55,24 @@
     <div class="row featurette">
         <div class="col-md-7 order-md-2">
             <h2 class="featurette-heading fw-normal lh-1">
-                이관희
+                서보경
+                <span class="text-body-secondary">
+             먼작개 지망생</span>
             </h2>
-            <p>- 🏡 지금 대전에 살고 있고 올해 대학교 졸업했어요!</p>
-            <p>- 🧐 MBTI: INTP / 외향적인 분들도 대환영!</p>
-            <p>- 👍 관심사 : 클라이밍, 인디, 아이돌 음악</p>
-            <p>- 🎮 개인 프로젝트 : 졸업 작품으로 unity를 기반으로 한 게임 제작 경험이 있습니다!</p>
-            <p>- 📋 협업 스타일 : 경험이나 지식이 부족해서 열심히 배우면서 하겠습니다!</p>
+            <p>- 먼작개란? 먼작귀(먼가 작고 귀여운 녀석)에서 따온 먼가 작고 귀여운 개발자의 줄임말입니다.</p>
+            <p>- MBTI: ENTP입니다.</p>
+            <p>- TMI: 스팀에 게임 600개 있는 게임 마니아</p>
+            <p>- 사용 가능 언어: nest, react, java, mysql을 조금 할 수 있어요.</p>
+            <p>- 기술 스택: git, jenkins, docker를 조금 쓸 줄 알아요.</p>
         </div>
         <div class="col-md-4 order-md-1">
-            <img src="img/gwan.jpg" class="profile-img"/>
+            <img src="img/bo.jpg" class="profile-img"/>
             </svg>
         </div>
         <div class="col-md-4 order-md-3 icon-container" style="justify-content: space-evenly; margin-top: 10px">
-            <a href="https://github.com/yigani"><i class="fa-brands fa-github fa-2xl" style="color: #479647;"></i></a>
-            <a href="https://velog.io/@pop3121/posts"><i class="fa-brands fa-vimeo fa-2xl" style="color: #479647;"></i></a>
+            <a href="https://github.com/dodu232?tab=repositories"><i class="fa-brands fa-github fa-2xl" style="color: #479647;"></i></a>
+            <a href="https://velog.io/@dodudong/posts"><i class="fa-brands fa-vimeo fa-2xl" style="color: #479647;"></i></a>
+            <a href="mailto:dodu7510@gmail.com?subject=안녕하세요."><i class="fa-solid fa-envelope fa-2xl" style="color: #479647;"></i></a>
         </div>
     </div>
     <hr class="featurette-divider" style="margin-bottom: 0"/>
@@ -100,12 +103,9 @@
 
 <style>
     .profile-img {
-        width: 200px; /* 크기 조정 (원형 유지) */
-        height: 200px; /* 크기 조정 (원형 유지) */
-        object-fit: cover; /* 이미지 비율 유지하며 자르기 */
-        border-radius: 50%; /* 원형 모양 적용 */
-        display: block; /* 가운데 정렬을 위해 추가 */
-        margin: 0 auto; /* 자동 마진으로 가운데 정렬 */
+        width: 400px;
+        height: 250px;
+        object-fit: cover;
     }
 
     input, textarea {
@@ -156,16 +156,6 @@
     button:disabled {
         opacity: 0.3;
     }
-    .name-cell {
-        background-color: lightgreen;
-        color: white;
-        font-weight: bold;
-        text-align: center;
-        padding: 8px;
-        border-radius: 5px;
-        width: 130px;
-        white-space: nowrap;
-    }
 
 </style>
 
@@ -191,84 +181,41 @@
 
 <script type="module">
     import {db} from "./firebase.js";
-    import {
-        collection,
-        addDoc,
-        getDocs,
-        deleteDoc,
-        doc,
-        query,
-        orderBy
-    } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    import {collection, addDoc, getDocs} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
-    // 🔹 댓글 등록 버튼 클릭 이벤트
     $(".confirm").click(async function () {
-        const user = $('#user').val().trim();
-        const content = $('#content').val().trim();
+        const user = $('#user').val();
+        const content = $('#content').val();
 
-        if (!user || !content) {
-            alert("이름과 댓글을 입력하세요!");
-            return;
-        }
-
-        const docData = {
-            id: "관희",  // 특정 유저 ID
-            user: user,
-            content: content,
-            timestamp: new Date()  // 🔥 최신 정렬을 위한 타임스탬프 추가
+        const doc = {
+            'id': "보경",
+            'user': user,
+            'content': content
         };
 
-        try {
-            await addDoc(collection(db, "comments"), docData);
-            $('#user').val("");
-            $('#content').val("");
-            loadComments();
-        } catch (error) {
-            console.error("댓글 저장 중 오류 발생:", error);
-            alert("댓글 저장에 실패했습니다.");
+        await addDoc(collection(db, "comments"), doc);
+        await location.reload();
+
+    })
+
+    const docs = await getDocs(collection(db, "comments"));
+
+    docs.forEach((doc) => {
+        const row = doc.data();
+        const id = row['id'];
+
+        if (id === "보경") {
+            const user = row['user'];
+            const content = row['content'];
+
+            const temp_html = `
+                    <tr style="border-bottom: 1px solid #f3f3f3;">
+                        <td style="width: 21%">${user}</td>
+                        <td>${content}</td>
+                    </tr>
+                    `
+            $('#test').append(temp_html);
         }
     });
-
-    async function loadComments() {
-        console.log("Firestore에서 댓글 불러오는 중...");
-        const commentList = $("#test");
-        commentList.empty();
-
-        try {
-            const q = query(collection(db, "comments"), orderBy("timestamp", "desc"));
-            const querySnapshot = await getDocs(q);
-
-            querySnapshot.forEach((doc) => {
-                const row = doc.data();
-                if (row.id === "관희") {
-                    const commentId = doc.id;
-                    const temp_html = `
-                        <tr style="border-bottom: 1px solid #f3f3f3;">
-                            <td class="name-cell">${row.user}</td>
-                            <td>${row.content}</td>
-                            <td style="width: 5%; text-align: right;">
-                                <button class="delete-btn" data-id="${commentId}" style="border: none; background: none; cursor: pointer; color: red;">❌</button>
-                            </td>
-                        </tr>
-                    `;
-                    commentList.append(temp_html);
-                }
-            });
-
-            $(".delete-btn").click(async function () {
-                const commentId = $(this).data("id");
-                await deleteDoc(doc(db, "comments", commentId));
-                loadComments();
-            });
-
-        } catch (error) {
-            console.error("댓글 불러오기 오류:", error);
-        }
-    }
-
-    $(document).ready(function () {
-        loadComments();
-    });
-
 </script>
 </html>
