@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+
+  <script type="module">
+
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+    import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+    import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBFpOj-ea58sXoqwfwj1Eo3Mx5LWTz67d0",
+      authDomain: "sparta-468c4.firebaseapp.com",
+      projectId: "sparta-468c4",
+      storageBucket: "sparta-468c4.firebasestorage.app",
+      messagingSenderId: "960334028960",
+      appId: "1:960334028960:web:1bfd6dca59be7db51fe9c5",
+      measurementId: "G-4QPYQBB7EB"
+    };
+
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+ 
+
+
+
+    $("#comment_input").click(async function () {
+
+
+
+
+
+      $("#comment_input").click(async function () {
+
+        let comment = $('#comment').val();
+        let name = $('#name').val();
+
+        let doc = {
+          'comment': comment,
+          'name': name
+        };
+        await addDoc(collection(db, "information"), doc);
+        alert('입력 완료!');
+        window.location.reload();
+      })
+    })
+
+    let docs = await getDocs(collection(db, "information"));
+    docs.forEach((doc) => {
+      let row = doc.data();
+      console.log(row);
+
+      let comment = row['comment'];
+      let name = row['name'];
+      let temp_html = `<div class="upcomment"> <span class="fontname"> ${name}   </span  >   : ${comment} </div>`;
+
+      $('#addcomment').append(temp_html)
+
+    });
+
+
+  </script>
+
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gowun+Dodum&family=Nanum+Pen+Script&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sigmar&display=swap');
+
+    * {
+      font-family: "Gowun Dodum", serif;
+    }
+
+    body {
+      background-color: #f4efd2;
+    }
+
+    .header-text {
+      color: black;
+    }
+
+    .team-icon-each {
+      margin-right: 20px;
+    }
+
+    .icon-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+      margin-top: 5px;
+    }
+
+    .icon {
+      padding-top: 5px;
+      padding-right: 15px;
+    }
+
+    .lead {
+      padding-top: 50px;
+    }
+
+    .comment {
+      border-radius: 10px;
+    }
+
+    .inputbtn1 {
+      width: 1000px;
+      height: 80px;
+      border-radius: 5px;
+      border: 1px solid rgb(0, 0, 0);
+
+    }
+
+    .inputbtn2 {
+      height: 80px;
+      border-radius: 5px;
+      border: 1px solid rgb(0, 0, 0);
+    }
+
+    .inputbtn3 {
+      height: 80px;
+      border-radius: 5px;
+      border: 1px solid rgb(0, 0, 0);
+    }
+
+    .nametitle {
+      text-align: center;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 30px;
+      color: rgb(255, 169, 10);
+    }
+
+    .info button {
+      background-color: bisque;
+    }
+
+    .info button:hover {
+      background-color: burlywood;
+    }
+
+    .info {
+      display: flex;
+      gap: 5px;
+    }
+
+    .upcomment {
+      margin-top: 5px;
+      background-color: white;
+      border-radius: 5px;
+      width: 1177px;
+      height: 40px;
+      font-size: 19px;
+      display: flex;
+      align-items: center
+    }
+
+    .fontname {
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 헤더 -->
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a href="home.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none link-dark">
+        <span class="fs-5">BEX Home</span>
+        <span></span>
+      </a>
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a href="bo.html" class="team-icon-each">
+            <img src="img/hat.png" width="30px" />
+            <span></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="gani.html" class="team-icon-each">
+            <img src="img/macaw.png" width="30px" />
+            <span></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="seokjun.html.html" class="team-icon-each">
+            <img src="img/map.png" width="30px" />
+            <span></span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="yerim.html" class="team-icon-each">
+            <img src="img/box.png" width="30px" />
+            <span></span>
+          </a>
+        </li>
+      </ul>
+    </header>
+  </div>
+
+  <!-- 팀원 아이콘 -->
+  <!-- <div class="icon-container">
+      <div class="row">
+        <div class="col">
+          <svg
+            class="bd-placeholder-img rounded-circle"
+            width="80"
+            height="80"
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            aria-label="Placeholder"
+            preserveAspectRatio="xMidYMid slice"
+            focusable="false"
+          >
+            <title>Placeholder</title>
+            <rect
+              width="100%"
+              height="100%"
+              fill="var(--bs-secondary-color)"
+            ></rect>
+          </svg>
+        </div>
+        <div class="col">
+          <svg
+            class="bd-placeholder-img rounded-circle"
+            width="80"
+            height="80"
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            aria-label="Placeholder"
+            preserveAspectRatio="xMidYMid slice"
+            focusable="false"
+          >
+            <title>Placeholder</title>
+            <rect
+              width="100%"
+              height="100%"
+              fill="var(--bs-secondary-color)"
+            ></rect>
+          </svg>
+        </div>
+        <div class="col">
+          <svg
+            class="bd-placeholder-img rounded-circle"
+            width="80"
+            height="80"
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            aria-label="Placeholder"
+            preserveAspectRatio="xMidYMid slice"
+            focusable="false"
+          >
+            <title>Placeholder</title>
+            <rect
+              width="100%"
+              height="100%"
+              fill="var(--bs-secondary-color)"
+            ></rect>
+          </svg>
+        </div>
+        <div class="col">
+          <svg
+            class="bd-placeholder-img rounded-circle"
+            width="80"
+            height="80"
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            aria-label="Placeholder"
+            preserveAspectRatio="xMidYMid slice"
+            focusable="false"
+          >
+            <title>Placeholder</title>
+            <rect
+              width="100%"
+              height="100%"
+              fill="var(--bs-secondary-color)"
+            ></rect>
+          </svg>
+        </div>
+      </div>
+    </div> -->
+
+  <!-- 소개란 -->
+  <div class="container marketing">
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading fw-normal lh-1">
+          이석준
+          <span class="text-body-secondary">
+            ISTP</span>
+        </h2>
+        <p class="lead">안녕하세요. MBTI는 ISTP입니다. 게임을 좋아하고 비전공자라 모르는게 많습니다. <br>잘 부탁드립니다.</p>
+      </div>
+      <div class="col-md-4 order-md-1">
+        <title>Placeholder</title>
+        <img src="img/사람 사진.jpg" width="300px" height="250px" fill="var(--bs-secondary-bg)" />
+
+        </svg>
+      </div>
+      <div class="col-md-4 order-md-3 icon-container">
+        <div class="icon">
+          <a href="#" class="icon-each">
+            <img src="img/icon-email.png" width="30px" />
+          </a>
+        </div>
+        <div class="icon">
+          <a href="#" class="icon-each">
+            <img src="img/icon-blog.png" width="30px" />
+          </a>
+        </div>
+        <div class="icon">
+          <a href="#" class="icon-each">
+            <img src="img/icon-link.png" width="30px" />
+          </a>
+        </div>
+      </div>
+    </div>
+    <hr class="featurette-divider" />
+  </div>
+
+  <!-- 방명록 -->
+
+
+  <div class="container">
+    <div>
+      <p class="nametitle">방명록</p>
+    </div>
+
+    <div class="info">
+      <input id="name" type="text" class="inputbtn2" placeholder="이름을 입력해주세요">
+      <input id="comment" type="text" class="inputbtn1" placeholder="내용을 입력해주세요">
+      <button id="comment_input" class="inputbtn3">입력하기</button>
+    </div>
+
+    <div id="addcomment">
+
+    </div>
+
+
+  </div>
+
+
+
+
+
+
+</body>
+
+</html>
